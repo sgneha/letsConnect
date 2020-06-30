@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon sever"
+    "server": "nodemon server"
   },
   "author": "Neha Singh",
   "license": "ISC",
