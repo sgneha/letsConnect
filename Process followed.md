@@ -96,7 +96,7 @@ copy the string from atlas after hitting connect
 
       2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
 
-  For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much [cleaner.](http://cleaner.It) (it makes your code synchronous even though it is asynchronous)
+For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much [cleaner.](http://cleaner.It) (it makes your code synchronous even though it is asynchronous)
 
 - bring in mongoose
 - bring config package
@@ -115,3 +115,14 @@ copy the string from atlas after hitting connect
 useNewUrlParser: true,
 
 useUnifiedTopology: true,
+
+#### Route Files with express router
+
+-will have separate file for diff route.
+-create folder in root called routes. All route will be returning json for our API.There will no server rendering templates,all gonna happen on front end react application.With Api folder create all files.
+• In each file:
+-Bring in express router
+-to use express router create var router.
+-to test make publec get request.
+• Now we want to access these routes so in server.js will define routes
+• check on postman it works
