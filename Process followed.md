@@ -172,5 +172,12 @@ Now again check in postman it gives error if validation fails and if request is 
    • just send and check in postman "user registered".And check in mongodb atlas the created user.
 
 4. return the jsonwebtoken(this is because when in the front end user logs in ,if he has webtoken and it gets logged in right away)
+   • return jsonwebtoken once they register so that they can use that token to authenticate and access protected routes.
+   • first we sign in and pass the payload then we have callback to send response to the client.
+   • later we have to protect our routes by creating a middleware so that it verifies the token.
+5. Bring in jsonwebtoken
+6. create a payload which is a object having a user and then its id
+7. put inside config/default.json make jwtSecret => put anything[now have to require config also]
+8. In jwt sign put payload,this token and optional expiring,callback(err,token).If we do not get error then In response we can send anything token or id.
 
-• catch
+   • catch
