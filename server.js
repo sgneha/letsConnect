@@ -3,6 +3,10 @@ const connectDB = require("./config/db"); //bring connectDB
 const app = express();
 // Connect Database
 connectDB();
+
+//Init Middleware
+app.use(express.json({ extended: false })); //pass object,doing this line will allow data in req.body
+
 app.get("/", (req, res) => res.send("API Running"));
 
 //Define routes

@@ -134,3 +134,13 @@ useUnifiedTopology: true,
 create models folder-> file with upper case convention.
 •putting avatar in model schema of user so that when user is created avatar is available right away.Becuase making profile is later stage. gravatar attaches picture with your email.
 All other things will be in profile.
+
+• Route that will register users and setup express validator for clean response
+
+•will make post req in users.js
+•we used to install body parser as separate package but now it comes with express.
+
+    •Postman: post request
+      •header->key:content type,value:application.json
+      •body->raw
+      it works
