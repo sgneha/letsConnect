@@ -84,3 +84,34 @@ will replace 'test' to 'start' and add 'server'
 Later we will add client script which run react and dev script which will run both at the same time using concurrently package installed.
 
 Now we can check in postman or in the browser as its simple get request that our express server is up and running .
+
+### Connect db
+
+copy the string from atlas after hitting connect
+
+- create a folder config-inside it
+
+  1. create file default.json and put that copied string in json with your password.⇒
+
+
+      2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
+
+  For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much [cleaner.](http://cleaner.It) (it makes your code synchronous even though it is asynchronous)
+
+- bring in mongoose
+- bring config package
+- get the value mongoURI in the variable db. By config.get we can get any value from json file
+- async arrow function to connect
+- connection wrap up in try catch block so that if it does not connects then we can show error
+- await mongoose.connect(db); // as this returns a promise so we put await here
+- exit process with failure
+
+- Now call connectDB() in server.js
+- now its connected but gives warming :
+- (node:3373) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+  MongoDB connected...
+- warning gone after adding these two
+
+useNewUrlParser: true,
+
+useUnifiedTopology: true,
