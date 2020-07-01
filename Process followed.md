@@ -89,12 +89,11 @@ Now we can check in postman or in the browser as its simple get request that our
 
 copy the string from atlas after hitting connect
 
-- create a folder config-inside it
+- create a folder in root config-inside it
 
-  1. create file default.json and put that copied string in json with your password.⇒
+  1. create file default.json and put that copied string in json with your password(mongo db atlas password)
 
-
-      2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
+  2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
 
 For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much cleaner. (it makes your code synchronous even though it is asynchronous)
 
@@ -123,7 +122,7 @@ useUnifiedTopology: true,
   • In each file:
 - Bring in express router
 - to use express router create var router.
-- to test make publec get request.
+- to test make public get request.
 
 • Now we want to access these routes so in server.js will define routes
 • check on postman it works
@@ -132,7 +131,7 @@ useUnifiedTopology: true,
 
 • Users => In order to interact with our db we need to create model for each of our resources.
 create models folder-> file with upper case convention.
-•putting avatar in model schema of user so that when user is created avatar is available right away.Becuase making profile is later stage. gravatar attaches picture with your email.
+•putting avatar in model schema of user so that when user is created avatar is available right away.Because making profile is later stage. gravatar attaches picture with your email.
 All other things will be in profile.
 
 • Route that will register users and setup express validator for clean response
@@ -145,39 +144,91 @@ All other things will be in profile.
       •body->raw
       it works
 
-• Bring in check ,validationResult->check in the documentation
-we can pass second argument to post route as check (pass a feild,msg)then dot rule.
+• Bring in check ,validationResult->(check in the documentation)
+• we can pass second argument to post route as check (pass a feild,msg)then dot rule.
 • To handle the respone go to the actual body and set errors.
-Now again check in postman it gives error if validation fails and if request is proper it gives proper response.It works.
+• Now again check in postman it gives error if validation fails and if request is proper it gives proper response.It works.
 
-###### Put Some logic in user registration(3.11)
+##### Put Some logic in user registration(3.11)
 
 •Destructure and pull out from req.body
+
 •Bring model to users.js and label the function the req,res function as async.
 
 • try
 
 1. See if the user exits then send error
+
    • find user by email and check if it exits then send status 400 & send error matching the previous types of error.
+
 2. get users gravatar(based on email),we want that part of user
    • Bring in gravatar package.
-   • s=> default size,r=> no bad pic s,m=> default pic if does not have gravatar
+
+   • s=> default size,r=> no bad pics, m=> default pic if does not have gravatar
+
    • create instance of user and pass the object(name,email,avatar,password)
+
 3. encryt the password
+
    • Bring in Bcrypt
+
    • create a salt to do the hashing with
+
    • take user password and hash it
+
    • save the user
+
    Note : anything that returns promise make sure to put await in front.
+
    • just send and check in postman "user registered".And check in mongodb atlas the created user.
 
 4. return the jsonwebtoken(this is because when in the front end user logs in ,if he has webtoken and it gets logged in right away)
+
    • return jsonwebtoken once they register so that they can use that token to authenticate and access protected routes.
+
    • first we sign in and pass the payload then we have callback to send response to the client.
+
    • later we have to protect our routes by creating a middleware so that it verifies the token.
+
 5. Bring in jsonwebtoken
 6. create a payload which is a object having a user and then its id
 7. put inside config/default.json make jwtSecret => put anything[now have to require config also]
 8. In jwt sign put payload,this token and optional expiring,callback(err,token).If we do not get error then In response we can send anything token or id.
 
    • catch
+
+#### Custom Auth Middleware & JWT verify
+
+• Now we need to send that token back to authenticate so that to can access protected route.That will be done by creating custom middleware.
+
+• create folder middleware and file auth.js->
+
+• Bring config and jwt
+
+• export this middleware function. As it is middleware function it takes three (req,res,next).Middleware function has access to req res cycle objects and next is callback which takes move forward to next middleware.
+
+• When we send a req in protected route we send it in header.
+
+• check if no token 401 status
+
+• if token is there decode it by verify which takes two things(first token from header,jwtSecret)
+
+• set req object user by decoding(we attached user id in payload ). And now use that user further in any protected route.
+
+• next() as in every middleware
+
+catch
+
+• it will run when token is not valid
+
+##### Let's implement the above in protected route
+
+• Bring middleware.
+
+• whenever we use middleware ,we add second param,just doing this makes the route protected.
+
+• if we check in postman get request auth we get "No token authorization denied" means its protected. If we want to access it and get the response then copy the token of that registered user,and go to the route -header-key->x-auth-token and value as copied token.Now we get the response.That means middleware is doing its job and validating the token.
+
+• We want userid as response.Bring user model.we will do try catch so that make call to db.return the user (req.user from middleware)minus the password.
+
+• Now in postman we do get call auth with token we get response user data.Save this postman as get auth user
