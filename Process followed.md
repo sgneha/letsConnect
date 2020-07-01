@@ -124,5 +124,13 @@ useUnifiedTopology: true,
 - Bring in express router
 - to use express router create var router.
 - to test make publec get request.
-  • Now we want to access these routes so in server.js will define routes
-  • check on postman it works
+
+• Now we want to access these routes so in server.js will define routes
+• check on postman it works
+
+#### Section 3: User API Routes & JWT Authentication
+
+• Users => In order to interact with our db we need to create model for each of our resources.
+create models folder-> file with upper case convention.
+•putting avatar in model schema of user so that when user is created avatar is available right away.Becuase making profile is later stage. gravatar attaches picture with your email.
+All other things will be in profile.
