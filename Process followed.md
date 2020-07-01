@@ -118,11 +118,11 @@ useUnifiedTopology: true,
 
 #### Route Files with express router
 
--will have separate file for diff route.
--create folder in root called routes. All route will be returning json for our API.There will no server rendering templates,all gonna happen on front end react application.With Api folder create all files.
-• In each file:
--Bring in express router
--to use express router create var router.
--to test make publec get request.
-• Now we want to access these routes so in server.js will define routes
-• check on postman it works
+- will have separate file for diff route.
+- create folder in root called routes. All route will be returning json for our API.There will no server rendering templates,all gonna happen on front end react application.With Api folder create all files.
+  • In each file:
+- Bring in express router
+- to use express router create var router.
+- to test make publec get request.
+  • Now we want to access these routes so in server.js will define routes
+  • check on postman it works
