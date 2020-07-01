@@ -96,7 +96,7 @@ copy the string from atlas after hitting connect
 
       2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
 
-For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much [cleaner.](http://cleaner.It) (it makes your code synchronous even though it is asynchronous)
+For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much cleaner. (it makes your code synchronous even though it is asynchronous)
 
 - bring in mongoose
 - bring config package
@@ -144,3 +144,8 @@ All other things will be in profile.
       •header->key:content type,value:application.json
       •body->raw
       it works
+
+• Bring in check ,validationResult->check in the documentation
+we can pass second argument to post route as check (pass a feild,msg)then dot rule.
+• To handle the respone go to the actual body and set errors.
+Now again check in postman it gives error if validation fails and if request is proper it gives proper response.It works.
