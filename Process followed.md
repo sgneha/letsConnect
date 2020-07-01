@@ -149,3 +149,28 @@ All other things will be in profile.
 we can pass second argument to post route as check (pass a feild,msg)then dot rule.
 • To handle the respone go to the actual body and set errors.
 Now again check in postman it gives error if validation fails and if request is proper it gives proper response.It works.
+
+###### Put Some logic in user registration(3.11)
+
+•Destructure and pull out from req.body
+•Bring model to users.js and label the function the req,res function as async.
+
+• try
+
+1. See if the user exits then send error
+   • find user by email and check if it exits then send status 400 & send error matching the previous types of error.
+2. get users gravatar(based on email),we want that part of user
+   • Bring in gravatar package.
+   • s=> default size,r=> no bad pic s,m=> default pic if does not have gravatar
+   • create instance of user and pass the object(name,email,avatar,password)
+3. encryt the password
+   • Bring in Bcrypt
+   • create a salt to do the hashing with
+   • take user password and hash it
+   • save the user
+   Note : anything that returns promise make sure to put await in front.
+   • just send and check in postman "user registered".And check in mongodb atlas the created user.
+
+4. return the jsonwebtoken(this is because when in the front end user logs in ,if he has webtoken and it gets logged in right away)
+
+• catch
