@@ -232,3 +232,9 @@ catch
 • We want userid as response.Bring user model.we will do try catch so that make call to db.return the user (req.user from middleware)minus the password.
 
 • Now in postman we do get call auth with token we get response user data.Save this postman as get auth user
+
+##### user authentication and login
+
+• We do a post request to login a user who has registered already.If any of the email is not in the db or password does not matches gives invalid credentials.
+• we do a post req with correct credentials token is generated and use this token in postman to GET auth user and it gives back that particular user.
+• save POst as Login user.
