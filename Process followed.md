@@ -238,3 +238,10 @@ catch
 • We do a post request to login a user who has registered already.If any of the email is not in the db or password does not matches gives invalid credentials.
 • we do a post req with correct credentials token is generated and use this token in postman to GET auth user and it gives back that particular user.
 • save POst as Login user.
+
+#### Profile API Routes
+
+• Model for our profile just like User
+• Reference to User model because we profile associated with user
+• if currently working there is 'true' then will disable the field 'to' .Will do this thing in react.
+• 'social' is an obect list of objects to other social media links.
