@@ -256,3 +256,13 @@ catch
 • we need to populate name and user also so will user populate method(first arg is name of the model from where to populate,array of feilds that ha sto be populated)
 • hitting url get http://localhost:5000/api/profile/me now gives response 'no token ' and with login user token it gives msg 'no profile'
 • Next Will create route for creation of profile
+
+##### Create & update profile route
+
+• As we need to use auth middleware and validation so will put brackets as second paramater(auth,checks)
+• I post req in postman it requires token  
+• grab the token from 'get logged in users profile' and check post call.Nothing happens because have not send any response yet.
+• pull out and destructure
+• If we don't define `profileFields.social = {};`it will give can't find youtube of undefined(social)
+• now update and insert data(if profile is found it will update it and if not will create it)
+• for educationn and experience will create diff routes and end points
