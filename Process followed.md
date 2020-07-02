@@ -241,7 +241,18 @@ catch
 
 #### Profile API Routes
 
+###### Creating profile model
+
 • Model for our profile just like User
 • Reference to User model because we profile associated with user
 • if currently working there is 'true' then will disable the field 'to' .Will do this thing in react.
 • 'social' is an obect list of objects to other social media links.
+
+###### Get current user profile
+
+• In route/profile we have to make lot of routes first lets create GET to get our(based on uderid in the token) profile then route (Post) to create a profile.
+• Bring in model Profile and User
+• Use middleware auth as its protected route will need token
+• we need to populate name and user also so will user populate method(first arg is name of the model from where to populate,array of feilds that ha sto be populated)
+• hitting url get http://localhost:5000/api/profile/me now gives response 'no token ' and with login user token it gives msg 'no profile'
+• Next Will create route for creation of profile
