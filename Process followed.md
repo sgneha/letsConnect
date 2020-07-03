@@ -301,3 +301,7 @@ catch
 
 • we need exp_id to delete
 • There are many ways to get the remove index.. we are doing one of it
+
+##### Add & Delete profile Education
+
+• same as above
