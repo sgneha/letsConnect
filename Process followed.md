@@ -289,3 +289,10 @@ catch
 • As it is private we have access to the token and get the user
 • add auth
 • later will use this route to delete user post
+
+##### Add profile experience
+
+• PUT request to update the experience(could be POST too)
+• need to have validation because in front end react will have some form to add the experience.
+• In front end will take date and format with package momentjs so that it looks nice.
+• we have not done updation of experience ,if want do that later.
