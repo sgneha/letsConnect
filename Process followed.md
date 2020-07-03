@@ -267,7 +267,19 @@ catch
 • now update and insert data(if profile is found it will update it and if not will create it)
 • for educationn and experience will create diff routes and end points
 
-##### Get all profiles and a profile by user id
+##### Get all profiles
 
 • Its public so no auth required.Get all profiles with name and avatar so populate
 • Logged in with 2nd user and created profile for that user and checked in route for all profiles in postman.It shows both.
+
+##### Get profile of a user by user id
+
+• Colon in route as it is placeholder.
+• do profiles to profile as it is single profile
+• id will come from params
+• if user id is given something which is not the kind then also it should give error 'profile not found' not 'Server Error'. So add this
+
+```if (err.kind == "ObjectId") {
+     return res.status(400).json({ msg: "Profile not found" });
+   }
+```
