@@ -296,3 +296,8 @@ catch
 • need to have validation because in front end react will have some form to add the experience.
 • In front end will take date and format with package momentjs so that it looks nice.
 • we have not done updation of experience ,if want do that later.
+
+##### Delete profile experience
+
+• we need exp_id to delete
+• There are many ways to get the remove index.. we are doing one of it
