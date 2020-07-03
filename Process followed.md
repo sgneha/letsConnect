@@ -257,7 +257,7 @@ catch
 • hitting url get http://localhost:5000/api/profile/me now gives response 'no token ' and with login user token it gives msg 'no profile'
 • Next Will create route for creation of profile
 
-##### Create & update profile route
+##### Create & update profile one route
 
 • As we need to use auth middleware and validation so will put brackets as second paramater(auth,checks)
 • I post req in postman it requires token  
@@ -283,3 +283,9 @@ catch
      return res.status(400).json({ msg: "Profile not found" });
    }
 ```
+
+##### One route to Delete profile and user
+
+• As it is private we have access to the token and get the user
+• add auth
+• later will use this route to delete user post
