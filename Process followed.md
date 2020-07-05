@@ -318,3 +318,15 @@ catch
 ##### Route to get all post,get post by id and delete post.
 
 We want the same error to show when we send valid format ID but the wrong one and when we send ID which is not even in valid format.
+
+##### Adding and removing likes
+
+    • check if post has not liked by this user already
+    • filter is high order array method
+    • likes is an array
+    • filter takes a function
+    • compare the current iteration with the user who is loggedin
+    • 'req.user.id' is in string format
+    • only returns spmething when it matches
+
+    • removing likes check if its been liked or not then unlike it and returm all the likes of the post
