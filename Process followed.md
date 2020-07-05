@@ -308,4 +308,9 @@ catch
 
 #### Post API routes
 
-creating post model 5.24
+##### creating post model 5.24
+
+##### Add Post routes
+
+• we will be getting name and the avatar from the user id from the token.So that has not been send as post request
+• we can now create post from any user
