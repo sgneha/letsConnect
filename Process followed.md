@@ -314,3 +314,5 @@ catch
 
 • we will be getting name and the avatar from the user id from the token.So that has not been send as post request
 • we can now create post from any user
+
+##### Route to get all post,get post by id and delete post.
