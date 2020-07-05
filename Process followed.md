@@ -305,3 +305,7 @@ catch
 ##### Add & Delete profile Education
 
 • same as above
+
+#### Post API routes
+
+creating post model 5.24
