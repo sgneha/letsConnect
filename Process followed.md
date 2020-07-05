@@ -330,3 +330,9 @@ We want the same error to show when we send valid format ID but the wrong one an
     • only returns spmething when it matches
 
     • removing likes check if its been liked or not then unlike it and returm all the likes of the post
+
+##### Adding and removing comments
+
+    • put id of the post
+    • create a new comment
+    • new comment is just an object,we are not making a collection
