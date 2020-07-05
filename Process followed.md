@@ -316,3 +316,5 @@ catch
 • we can now create post from any user
 
 ##### Route to get all post,get post by id and delete post.
+
+We want the same error to show when we send valid format ID but the wrong one and when we send ID which is not even in valid format.
