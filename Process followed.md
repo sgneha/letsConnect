@@ -336,3 +336,5 @@ We want the same error to show when we send valid format ID but the wrong one an
     • put id of the post
     • create a new comment
     • new comment is just an object,we are not making a collection
+
+    • To delete a comment we need both post id and the comment id
