@@ -16,7 +16,7 @@ const PostSchema = new Schema({
   avatar: {
     type: String, // if user deletes the account then to it shows how has posted
   },
-  like: [
+  likes: [
     //array of likes
     {
       user: {
