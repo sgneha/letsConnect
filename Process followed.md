@@ -109,21 +109,23 @@ For connection we can use `mongoose.connect(db)` which will return promise with 
 - export connectDB
 
 - Now call connectDB() in server.js
-- now its connected but gives warming :
+- now its connected but gives warning :
 - (node:3373) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
   MongoDB connected...
 - warning gone after adding these two
 
-useNewUrlParser: true,
+    useNewUrlParser: true,
 
-useUnifiedTopology: true,
+    useUnifiedTopology: true,
 
 #### Route Files with express router
 
-- will have separate file for diff route.
+
+
+- will have separate file for diff route.we can do normally in servert.js but it is large application,will have separate routes.
 - create folder in root called routes. All route will be returning json for our API.There will no server rendering templates,all gonna happen on front end react application.With Api folder create all files.
   • In each file:
-- Bring in express router
+- Bring in express router in each file to use routes in different files
 - to use express router create var router.
 - to test make public get request.
 
@@ -141,9 +143,12 @@ All other things will be in profile.
 
 •will make post req in users.js
 •we used to install body parser as separate package but now it comes with express.
+•//Init Middleware
+ //doing this line in server.js will allow data in req.body
+  ```app.use(express.json({ extended: false })); ```//pass object
 
     •Postman: post request
-      •header->key:content type,value:application.json
+      •header->key:content type,value:application/json
       •body->raw
       it works
 
@@ -193,10 +198,10 @@ All other things will be in profile.
 
    • later we have to protect our routes by creating a middleware so that it verifies the token.
 
-5. Bring in jsonwebtoken
-6. create a payload which is a object having a user and then its id
+5. Bring in jsonwebtoken as jwt
+6. create a payload which is a object having a user in which it has id (this id is what we get when promise is returned from user.save().mongoose provide a abstraction layer so that we can use id instead if _id which is created from database.
 7. put inside config/default.json make jwtSecret => put anything[now have to require config also]
-8. In jwt sign put payload,this token and optional expiring,callback(err,token).If we do not get error then In response we can send anything token or id.
+8. In jwt sign put payload,this above token and optional expiring(before deploying in production change this to less),callback(possible err,token).If we do not get error then in response we can send anything token or id back to the client.In this case we are sending the token.
 
    • catch
 
