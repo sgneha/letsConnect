@@ -1,4 +1,4 @@
-#### Full stack social network application like linkedIn using Node.js, Express, React, Redux and MongoDB along with ES6+.
+#### Full stack social network application for developers using Node.js, Express, React, Redux and MongoDB along with ES6+ which includes authentication,profiles and forum posts.
 
 - Building an extensive backend API with Node.js & Express
 
