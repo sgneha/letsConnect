@@ -97,7 +97,7 @@ copy the string from atlas after hitting connect
 
   2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
 
-For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much cleaner. (it makes your code synchronous even though it is asynchronous)
+For connection we can use `mongoose.connect(db)` which will return promise with .then .catch but through out the course we will be using async await as it is new standard and much cleaner. (it makes your code look synchronous even though it is asynchronous)
 
 - bring in mongoose
 - bring config package
@@ -106,6 +106,7 @@ For connection we can use `mongoose.connect(db)` which will return promise with 
 - connection wrap up in try catch block so that if it does not connects then we can show error
 - await mongoose.connect(db); // as this returns a promise so we put await here
 - exit process with failure
+- export connectDB
 
 - Now call connectDB() in server.js
 - now its connected but gives warming :
