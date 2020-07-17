@@ -1,4 +1,4 @@
-Why Mongo Atlas
+##### Why Mongo Atlas
 
 you cant install a local instance of mongo when you are using heroku,you have to see something like digital ocean if you want to install mongo on the server.
 
@@ -6,31 +6,31 @@ Mongoose is a package with npm which allows to use model our data and it gives b
 
 Start our express server:
 
-make package.json (npm init) :put name,description,main→server.js,author.
+##### make package.json (npm init) :put name,description,main→server.js,author.
 
 Install regular dependencies: npm i (below all)
 
-express⇒ its web framework for back end
+* express⇒ its web framework for back end
 
-express-validator⇒for data validator so that when we make post req to our api and if there needs to be field that are not there then it will raise an error
+* express-validator⇒for data validator so that when we make post req to our api and if there needs to be field that are not there then it will raise an error
 
-bcryptjs⇒password encryption
+* bcryptjs⇒password encryption
 
-config⇒for global variables
+* config⇒for global variables
 
-gravatar⇒ profile picture avatars. If a user sign ups with the email associated with the gravatar account it will automatically show the profile image
+* gravatar⇒ profile picture avatars. If a user sign ups with the email associated with the gravatar account it will automatically show the profile image
 
-jsonwebtoken⇒ will use jwt to pass token for validation
+* jsonwebtoken⇒ will use jwt to pass token for validation
 
-mongoose⇒layer that sit on top of db so that we can interact with it.
+* mongoose⇒layer that sit on top of db so that we can interact with it.
 
-request⇒small module that allows to make http request to another api and we are installing this for github repositories,we want our profiles to have github repositories listed on them.We will be making backend request and hide our api keys just return the repositories.
+* request⇒small module that allows to make http request to another api and we are installing this for github repositories,we want our profiles to have github repositories listed on them.We will be making backend request and hide our api keys just return the repositories.
 
-Install dev dependencies: npm i -D(nodemon concurrently)
+##### Install dev dependencies: npm i -D(nodemon concurrently)
 
-nodemon⇒constantly watch server so we don't have to refresh server everytime we make change.
+* nodemon⇒constantly watch server so we don't have to refresh server everytime we make change.
 
-concurrently⇒allow us to run our backend express server and frontend react server at the same time with one single command.
+* concurrently⇒allow us to run our backend express server and frontend react server at the same time with one single command.
 
 server.js
 
@@ -91,7 +91,7 @@ copy the string from atlas after hitting connect
 
 - create a folder in root config-inside it
 
-  1. create file default.json and put that copied string in json with your password(mongo db atlas password)
+  1. create file default.json and put that copied string in json with your password(mongodb atlas password)
 
   2. create another file db.js for connection⇒ this connection can also be done inside server.js but better not to do clutter that file.
 
