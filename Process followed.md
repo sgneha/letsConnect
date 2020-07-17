@@ -74,10 +74,12 @@ but will make some change in the npm scripts in package .json
 
 will replace 'test' to 'start' and add 'server'
 
-```json
+```
 "scripts": {
-    "start": "node server",   // this script heruko will run when we deploy (2nd part server is name of the file)
-    "server": "nodemon server" // for development script server(2nd part server is name of the file)
+// this script heruko will run when we deploy (2nd part server is name of the file)
+    "start": "node server",   
+ // for development script server(2nd part server is name of the file)   
+    "server": "nodemon server" 
   },
 ```
 
