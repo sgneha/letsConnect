@@ -180,7 +180,7 @@ All other things will be in profile.
 
    • Bring in Bcrypt
 
-   • create a salt to do the hashing with
+   • create a salt to do the hashing
 
    • take user password and hash it
 
@@ -200,8 +200,8 @@ All other things will be in profile.
 
 5. Bring in jsonwebtoken as jwt
 6. create a payload which is a object having a user in which it has id (this id is what we get when promise is returned from user.save().mongoose provide a abstraction layer so that we can use id instead if _id which is created from database.
-7. put inside config/default.json make jwtSecret => put anything[now have to require config also]
-8. In jwt sign put payload,this above token and optional expiring(before deploying in production change this to less),callback(possible err,token).If we do not get error then in response we can send anything token or id back to the client.In this case we are sending the token.
+7. put inside config/default.json make jwtSecret => put anything(now have to require config also)
+8. In jwt sign put payload,this above token and optional expiring(before deploying in production change this to less time),callback(possible error,token).If we do not get error then in response we can send anything token or id back to the client.In this case we are sending the token.
 
    • catch
 
@@ -209,7 +209,7 @@ All other things will be in profile.
 
 • Now we need to send that token back to authenticate so that to can access protected route.That will be done by creating custom middleware.
 
-• create folder middleware and file auth.js->
+• create folder middleware and file auth.js
 
 • Bring config and jwt
 
@@ -237,7 +237,7 @@ catch
 
 • if we check in postman get request auth we get "No token authorization denied" means its protected. If we want to access it and get the response then copy the token of that registered user,and go to the route -header-key->x-auth-token and value as copied token.Now we get the response.That means middleware is doing its job and validating the token.
 
-• We want userid as response.Bring user model.we will do try catch so that make call to db.return the user (req.user from middleware)minus the password.
+• We want userid as response.Bring user model.we will do try catch so that make call to db.Return the user (req.user from middleware)minus the password.
 
 • Now in postman we do get call auth with token we get response user data.Save this postman as get auth user
 
@@ -245,7 +245,7 @@ catch
 
 • We do a post request to login a user who has registered already.If any of the email is not in the db or password does not matches gives invalid credentials.
 • we do a post req with correct credentials token is generated and use this token in postman to GET auth user and it gives back that particular user.
-• save POst as Login user.
+• save Post as Login user.
 
 #### Profile API Routes
 
@@ -254,26 +254,26 @@ catch
 • Model for our profile just like User
 • Reference to User model because we profile associated with user
 • if currently working there is 'true' then will disable the field 'to' .Will do this thing in react.
-• 'social' is an obect list of objects to other social media links.
+• 'social' is an object list of objects to other social media links.
 
 ###### Get current user profile
 
-• In route/profile we have to make lot of routes first lets create GET to get our(based on uderid in the token) profile then route (Post) to create a profile.
+• In route/profile we have to make lot of routes first lets create GET to get our(based on userid in the token) profile then route (Post) to create a profile.
 • Bring in model Profile and User
 • Use middleware auth as its protected route will need token
-• we need to populate name and user also so will user populate method(first arg is name of the model from where to populate,array of feilds that ha sto be populated)
-• hitting url get http://localhost:5000/api/profile/me now gives response 'no token ' and with login user token it gives msg 'no profile'
+• we need to populate name and user also so will user populate method(first arg is name of the model from where to populate,array of feilds that has to be populated)
+• hitting url get ``` http://localhost:5000/api/profile/me``` now gives response 'no token ' and with login user token it gives msg 'no profile'
 • Next Will create route for creation of profile
 
 ##### Create & update profile one route
 
 • As we need to use auth middleware and validation so will put brackets as second paramater(auth,checks)
-• I post req in postman it requires token  
+• If post req in postman it requires token  
 • grab the token from 'get logged in users profile' and check post call.Nothing happens because have not send any response yet.
 • pull out and destructure
 • If we don't define `profileFields.social = {};`it will give can't find youtube of undefined(social)
 • now update and insert data(if profile is found it will update it and if not will create it)
-• for educationn and experience will create diff routes and end points
+• for education and experience will create diff routes and end points
 
 ##### Get all profiles
 
@@ -308,7 +308,7 @@ catch
 ##### Delete profile experience
 
 • we need exp_id to delete
-• There are many ways to get the remove index.. we are doing one of it
+• There are many ways to get the remove index.we are doing one of it
 
 ##### Add & Delete profile Education
 
