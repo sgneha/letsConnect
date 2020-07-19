@@ -10,27 +10,27 @@ Start our express server:
 
 Install regular dependencies: npm i (below all)
 
-* express⇒ its web framework for back end
+- express⇒ its web framework for back end
 
-* express-validator⇒for data validator so that when we make post req to our api and if there needs to be field that are not there then it will raise an error
+- express-validator⇒for data validator so that when we make post req to our api and if there needs to be field that are not there then it will raise an error
 
-* bcryptjs⇒password encryption
+- bcryptjs⇒password encryption
 
-* config⇒for global variables
+- config⇒for global variables
 
-* gravatar⇒ profile picture avatars. If a user sign ups with the email associated with the gravatar account it will automatically show the profile image
+- gravatar⇒ profile picture avatars. If a user sign ups with the email associated with the gravatar account it will automatically show the profile image
 
-* jsonwebtoken⇒ will use jwt to pass token for validation
+- jsonwebtoken⇒ will use jwt to pass token for validation
 
-* mongoose⇒layer that sit on top of db so that we can interact with it.
+- mongoose⇒layer that sit on top of db so that we can interact with it.
 
-* request⇒small module that allows to make http request to another api and we are installing this for github repositories,we want our profiles to have github repositories listed on them.We will be making backend request and hide our api keys just return the repositories.
+- request⇒small module that allows to make http request to another api and we are installing this for github repositories,we want our profiles to have github repositories listed on them.We will be making backend request and hide our api keys just return the repositories.
 
 ##### Install dev dependencies: npm i -D(nodemon concurrently)
 
-* nodemon⇒constantly watch server so we don't have to refresh server everytime we make change.
+- nodemon⇒constantly watch server so we don't have to refresh server everytime we make change.
 
-* concurrently⇒allow us to run our backend express server and frontend react server at the same time with one single command.
+- concurrently⇒allow us to run our backend express server and frontend react server at the same time with one single command.
 
 server.js
 
@@ -77,9 +77,9 @@ will replace 'test' to 'start' and add 'server'
 ```
 "scripts": {
 // this script heruko will run when we deploy (2nd part server is name of the file)
-    "start": "node server",   
- // for development script server(2nd part server is name of the file)   
-    "server": "nodemon server" 
+    "start": "node server",
+ // for development script server(2nd part server is name of the file)
+    "server": "nodemon server"
   },
 ```
 
@@ -114,13 +114,11 @@ For connection we can use `mongoose.connect(db)` which will return promise with 
   MongoDB connected...
 - warning gone after adding these two
 
-    useNewUrlParser: true,
+  useNewUrlParser: true,
 
-    useUnifiedTopology: true,
+  useUnifiedTopology: true,
 
 #### Route Files with express router
-
-
 
 - will have separate file for diff route.we can do normally in servert.js but it is large application,will have separate routes.
 - create folder in root called routes. All route will be returning json for our API.There will no server rendering templates,all gonna happen on front end react application.With Api folder create all files.
@@ -144,8 +142,8 @@ All other things will be in profile.
 •will make post req in users.js
 •we used to install body parser as separate package but now it comes with express.
 •//Init Middleware
- //doing this line in server.js will allow data in req.body
-  ```app.use(express.json({ extended: false })); ```//pass object
+//doing this line in server.js will allow data in req.body
+`app.use(express.json({ extended: false }));`//pass object
 
     •Postman: post request
       •header->key:content type,value:application/json
@@ -199,7 +197,7 @@ All other things will be in profile.
    • later we have to protect our routes by creating a middleware so that it verifies the token.
 
 5. Bring in jsonwebtoken as jwt
-6. create a payload which is a object having a user in which it has id (this id is what we get when promise is returned from user.save().mongoose provide a abstraction layer so that we can use id instead if _id which is created from database.
+6. create a payload which is a object having a user in which it has id (this id is what we get when promise is returned from user.save().mongoose provide a abstraction layer so that we can use id instead if \_id which is created from database.
 7. put inside config/default.json make jwtSecret => put anything(now have to require config also)
 8. In jwt sign put payload,this above token and optional expiring(before deploying in production change this to less time),callback(possible error,token).If we do not get error then in response we can send anything token or id back to the client.In this case we are sending the token.
 
@@ -252,7 +250,7 @@ catch
 ###### Creating profile model
 
 • Model for our profile just like User
-• Reference to User model because we profile associated with user
+• Reference to User model because we want profile associated with user
 • if currently working there is 'true' then will disable the field 'to' .Will do this thing in react.
 • 'social' is an object list of objects to other social media links.
 
@@ -261,8 +259,8 @@ catch
 • In route/profile we have to make lot of routes first lets create GET to get our(based on userid in the token) profile then route (Post) to create a profile.
 • Bring in model Profile and User
 • Use middleware auth as its protected route will need token
-• we need to populate name and user also so will user populate method(first arg is name of the model from where to populate,array of feilds that has to be populated)
-• hitting url get ``` http://localhost:5000/api/profile/me``` now gives response 'no token ' and with login user token it gives msg 'no profile'
+• we need to populate name and user also so will use populate method(first arg is name of the model from where to populate,array of feilds that has to be populated)
+• hitting url get `http://localhost:5000/api/profile/me` now gives response 'no token ' and with login user token it gives msg 'no profile'
 • Next Will create route for creation of profile
 
 ##### Create & update profile one route
