@@ -344,3 +344,7 @@ We want the same error to show when we send valid format ID but the wrong one an
     • new comment is just an object,we are not making a collection
 
     • To delete a comment we need both post id and the comment id
+
+#### React front end
+
+npx comes with nodejs or npm which allows us to install create react app and others without installing globally into the machine.
